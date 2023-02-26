@@ -7,7 +7,6 @@ const reservationRoute = require("./routes/reservationRoute");
 var cors = require("cors");
 const express = require("express");
 const app = express();
-const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
@@ -26,6 +25,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).json({ message: err.message });
   return;
 });
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Example app listening on port ${process.env.PORT || 3001}`);
 });
